@@ -6,6 +6,7 @@ import {Alert, Panel, PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
 
 import moment from "moment";
 import Calendar from "../../../react-calendar/src";
+import '../../../react-calendar/dist/Calendar.css';
 
 class CalendarView extends React.Component {
     constructor(props) {

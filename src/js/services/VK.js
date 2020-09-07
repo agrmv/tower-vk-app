@@ -12,7 +12,7 @@ export const initApp = () => (dispatch) => {
         if (e.detail.type === 'VKWebAppUpdateConfig') {
             VKConnect.unsubscribe(VKConnectCallback);
 
-            dispatch(setColorScheme(e.detail.data.scheme));
+            dispatch(setColorScheme("bright_light"));
         }
     };
 
