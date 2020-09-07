@@ -2,10 +2,12 @@
   "name": "vk-tower-app",
   "version": "1.0.0",
   "description": "",
+  "homepage": "./",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "deploy": "vk-miniapps-deploy"
   },
   "keywords": [],
   "author": "",

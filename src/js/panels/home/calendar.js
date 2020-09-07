@@ -17,7 +17,7 @@ class CalendarView extends React.Component {
 
     onChange = date => this.setState({date});
 
-    showDayPopup(value) {
+    onClickDay = value => {
         this.props.openPopout(
             <Alert
                 actions={[{
@@ -31,10 +31,6 @@ class CalendarView extends React.Component {
                 <p>{moment(value).format('YYYY-MM-DD')}</p>
             </Alert>
         );
-    }
-
-    onClickDay = value => {
-        this.showDayPopup();
     };
 
     render() {
