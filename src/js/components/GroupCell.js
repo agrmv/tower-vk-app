@@ -1,6 +1,6 @@
 import React, {PureComponent} from 'react';
 
-import {Cell, Avatar} from "@vkontakte/vkui";
+import {Avatar, Cell} from "@vkontakte/vkui";
 
 class GroupCell extends PureComponent {
 

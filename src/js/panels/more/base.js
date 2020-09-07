@@ -6,15 +6,15 @@ import {setActiveTab, setScrollPositionByID} from "../../store/vk/actions";
 import {restoreScrollPosition} from "../../services/_functions";
 
 import {
-    Div,
-    Panel,
-    Group,
     CellButton,
-    PanelHeader,
+    Div,
     FixedLayout,
+    Group,
     HorizontalScroll,
-    TabsItem,
-    Tabs
+    Panel,
+    PanelHeader,
+    Tabs,
+    TabsItem
 } from "@vkontakte/vkui";
 
 class HomePanelProfile extends React.Component {

@@ -1,7 +1,17 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {Cell, List, Avatar, InfoRow, ModalPage, ModalPageHeader, PanelHeaderButton, withPlatform, IOS} from "@vkontakte/vkui";
+import {
+    Avatar,
+    Cell,
+    InfoRow,
+    IOS,
+    List,
+    ModalPage,
+    ModalPageHeader,
+    PanelHeaderButton,
+    withPlatform
+} from "@vkontakte/vkui";
 
 import Icon24Dismiss from '@vkontakte/icons/dist/24/dismiss';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';

@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {goBack, closeModal, setStory} from "./js/store/router/actions";
+import {closeModal, goBack, setStory} from "./js/store/router/actions";
 import {getActivePanel} from "./js/services/_functions";
 import * as VK from './js/services/VK';
 
-import {Epic, View, Root, Tabbar, ModalRoot, TabbarItem, ConfigProvider} from "@vkontakte/vkui";
+import {ConfigProvider, Epic, ModalRoot, Root, Tabbar, TabbarItem, View} from "@vkontakte/vkui";
 
 import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
 import Icon28More from '@vkontakte/icons/dist/28/more';

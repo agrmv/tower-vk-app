@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux'
-import {goBack, closeModal} from "./js/store/router/actions";
+import {closeModal, goBack} from "./js/store/router/actions";
 import {getActivePanel} from "./js/services/_functions";
 import * as VK from './js/services/VK';
 
-import {View, Root, ModalRoot, ConfigProvider} from "@vkontakte/vkui";
+import {ConfigProvider, ModalRoot, Root, View} from "@vkontakte/vkui";
 
 import HomePanelProfile from './js/panels/home/base';
 import HomePanelGroups from './js/panels/home/groups';

@@ -1,12 +1,4 @@
-import {
-    SET_PAGE,
-    GO_BACK,
-    OPEN_POPOUT,
-    CLOSE_POPOUT,
-    OPEN_MODAL,
-    CLOSE_MODAL,
-    SET_STORY
-} from './actionTypes';
+import {CLOSE_MODAL, CLOSE_POPOUT, GO_BACK, OPEN_MODAL, OPEN_POPOUT, SET_PAGE, SET_STORY} from './actionTypes';
 
 import * as VK from "../../services/VK";
 import {smoothScrollToTop} from "../../services/_functions";

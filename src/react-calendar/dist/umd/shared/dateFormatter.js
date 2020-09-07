@@ -1,19 +1,22 @@
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+    value: true
 });
 exports.formatWeekday = exports.formatShortWeekday = exports.formatYear = exports.formatMonthYear = exports.formatMonth = exports.formatLongDate = exports.formatDate = void 0;
 
 var _getUserLocale = _interopRequireDefault(require("get-user-locale"));
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {"default": obj};
+}
 
 function getFormatter(options) {
-  return function (locale, date) {
-    return date.toLocaleString(locale || (0, _getUserLocale["default"])(), options);
-  };
+    return function (locale, date) {
+        return date.toLocaleString(locale || (0, _getUserLocale["default"])(), options);
+    };
 }
+
 /**
  * Changes the hour in a Date to ensure right date formatting even if DST is messed up.
  * Workaround for bug in WebKit and Firefox with historical dates.
@@ -26,41 +29,41 @@ function getFormatter(options) {
 
 
 function toSafeHour(date) {
-  var safeDate = new Date(date);
-  return new Date(safeDate.setHours(12));
+    var safeDate = new Date(date);
+    return new Date(safeDate.setHours(12));
 }
 
 function getSafeFormatter(options) {
-  return function (locale, date) {
-    return getFormatter(options)(locale, toSafeHour(date));
-  };
+    return function (locale, date) {
+        return getFormatter(options)(locale, toSafeHour(date));
+    };
 }
 
 var formatDateOptions = {
-  day: 'numeric',
-  month: 'numeric',
-  year: 'numeric'
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
 };
 var formatLongDateOptions = {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric'
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
 };
 var formatMonthOptions = {
-  month: 'long'
+    month: 'long'
 };
 var formatMonthYearOptions = {
-  month: 'long',
-  year: 'numeric'
+    month: 'long',
+    year: 'numeric'
 };
 var formatYearOptions = {
-  year: 'numeric'
+    year: 'numeric'
 };
 var formatShortWeekdayOptions = {
-  weekday: 'short'
+    weekday: 'short'
 };
 var formatWeekdayOptions = {
-  weekday: 'long'
+    weekday: 'long'
 };
 var formatDate = getSafeFormatter(formatDateOptions);
 exports.formatDate = formatDate;

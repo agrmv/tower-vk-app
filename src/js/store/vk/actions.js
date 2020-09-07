@@ -1,7 +1,7 @@
 import {
-    SET_COLOR_SCHEME,
     SET_ACCESS_TOKEN,
     SET_ACTIVE_TAB,
+    SET_COLOR_SCHEME,
     SET_SCROLL_POSITION,
     SET_SCROLL_POSITION_BY_ID
 } from './actionTypes';

@@ -1,4 +1,4 @@
-import {SET_PAGE, SET_STORY, GO_BACK, OPEN_POPOUT, CLOSE_POPOUT, OPEN_MODAL, CLOSE_MODAL} from './actionTypes';
+import {CLOSE_MODAL, CLOSE_POPOUT, GO_BACK, OPEN_MODAL, OPEN_POPOUT, SET_PAGE, SET_STORY} from './actionTypes';
 
 export const setStory = (story, initial_panel) => (
     {

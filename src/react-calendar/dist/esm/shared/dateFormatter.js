@@ -1,10 +1,11 @@
 import getUserLocale from 'get-user-locale';
 
 function getFormatter(options) {
-  return function (locale, date) {
-    return date.toLocaleString(locale || getUserLocale(), options);
-  };
+    return function (locale, date) {
+        return date.toLocaleString(locale || getUserLocale(), options);
+    };
 }
+
 /**
  * Changes the hour in a Date to ensure right date formatting even if DST is messed up.
  * Workaround for bug in WebKit and Firefox with historical dates.
@@ -17,41 +18,41 @@ function getFormatter(options) {
 
 
 function toSafeHour(date) {
-  var safeDate = new Date(date);
-  return new Date(safeDate.setHours(12));
+    var safeDate = new Date(date);
+    return new Date(safeDate.setHours(12));
 }
 
 function getSafeFormatter(options) {
-  return function (locale, date) {
-    return getFormatter(options)(locale, toSafeHour(date));
-  };
+    return function (locale, date) {
+        return getFormatter(options)(locale, toSafeHour(date));
+    };
 }
 
 var formatDateOptions = {
-  day: 'numeric',
-  month: 'numeric',
-  year: 'numeric'
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
 };
 var formatLongDateOptions = {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric'
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
 };
 var formatMonthOptions = {
-  month: 'long'
+    month: 'long'
 };
 var formatMonthYearOptions = {
-  month: 'long',
-  year: 'numeric'
+    month: 'long',
+    year: 'numeric'
 };
 var formatYearOptions = {
-  year: 'numeric'
+    year: 'numeric'
 };
 var formatShortWeekdayOptions = {
-  weekday: 'short'
+    weekday: 'short'
 };
 var formatWeekdayOptions = {
-  weekday: 'long'
+    weekday: 'long'
 };
 export var formatDate = getSafeFormatter(formatDateOptions);
 export var formatLongDate = getSafeFormatter(formatLongDateOptions);

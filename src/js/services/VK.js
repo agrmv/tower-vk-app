@@ -2,7 +2,7 @@ import VKConnect from "@vkontakte/vk-connect";
 
 import {store} from "../../index";
 
-import {setColorScheme, setAccessToken} from "../store/vk/actions";
+import {setAccessToken, setColorScheme} from "../store/vk/actions";
 
 const APP_ID = 6984089;
 const API_VERSION = '5.92';

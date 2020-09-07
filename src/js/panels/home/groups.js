@@ -2,12 +2,12 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 
-import {goBack, openPopout, closePopout, openModal} from "../../store/router/actions";
+import {closePopout, goBack, openModal, openPopout} from "../../store/router/actions";
 import * as VK from '../../services/VK';
 
 import {renderGroupsList} from '../../services/renderers';
 
-import {Div, List, Panel, Group, Button, PanelHeader, PanelSpinner, PanelHeaderBack, Header} from "@vkontakte/vkui";
+import {Button, Div, Group, Header, List, Panel, PanelHeader, PanelHeaderBack, PanelSpinner} from "@vkontakte/vkui";
 
 class HomePanelGroups extends React.Component {
 

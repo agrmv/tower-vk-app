@@ -1,7 +1,7 @@
 import getUserLocale from 'get-user-locale';
 
 function getFormatter(options) {
-  return (locale, date) => date.toLocaleString(locale || getUserLocale(), options);
+    return (locale, date) => date.toLocaleString(locale || getUserLocale(), options);
 }
 
 /**
@@ -14,21 +14,21 @@ function getFormatter(options) {
  * @param {Date} date Date.
  */
 function toSafeHour(date) {
-  const safeDate = new Date(date);
-  return new Date(safeDate.setHours(12));
+    const safeDate = new Date(date);
+    return new Date(safeDate.setHours(12));
 }
 
 function getSafeFormatter(options) {
-  return (locale, date) => getFormatter(options)(locale, toSafeHour(date));
+    return (locale, date) => getFormatter(options)(locale, toSafeHour(date));
 }
 
-const formatDateOptions = { day: 'numeric', month: 'numeric', year: 'numeric' };
-const formatLongDateOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-const formatMonthOptions = { month: 'long' };
-const formatMonthYearOptions = { month: 'long', year: 'numeric' };
-const formatYearOptions = { year: 'numeric' };
-const formatShortWeekdayOptions = { weekday: 'short' };
-const formatWeekdayOptions = { weekday: 'long' };
+const formatDateOptions = {day: 'numeric', month: 'numeric', year: 'numeric'};
+const formatLongDateOptions = {day: 'numeric', month: 'long', year: 'numeric'};
+const formatMonthOptions = {month: 'long'};
+const formatMonthYearOptions = {month: 'long', year: 'numeric'};
+const formatYearOptions = {year: 'numeric'};
+const formatShortWeekdayOptions = {weekday: 'short'};
+const formatWeekdayOptions = {weekday: 'long'};
 
 export const formatDate = getSafeFormatter(formatDateOptions);
 export const formatLongDate = getSafeFormatter(formatLongDateOptions);

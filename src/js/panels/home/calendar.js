@@ -3,10 +3,11 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import {closePopout, goBack, openModal, openPopout} from "../../store/router/actions";
 import {Alert, Panel, PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
-import Calendar from "../../../react-calendar";
-import moment from "moment";
 
-class TowerCalendar extends React.Component {
+import moment from "moment";
+import Calendar from "../../../react-calendar/src";
+
+class CalendarView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -69,4 +70,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(TowerCalendar);
+export default connect(mapStateToProps, mapDispatchToProps)(CalendarView);

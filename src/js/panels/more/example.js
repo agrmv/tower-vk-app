@@ -5,14 +5,14 @@ import {goBack} from '../../store/router/actions';
 import {setFormData} from "../../store/formData/actions";
 
 import {
-    Div,
     Button,
     Checkbox,
-    Input,
+    Div,
     FormLayout,
     FormLayoutGroup,
-    Panel,
     Group,
+    Input,
+    Panel,
     PanelHeader,
     PanelHeaderBack
 } from "@vkontakte/vkui";
