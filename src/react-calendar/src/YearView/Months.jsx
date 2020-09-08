@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getYear} from '@wojtekmaj/date-utils';
 
-import TileGroup from '../TileGroup';
-import Month from './Month';
+import TileGroup from '../TileGroup.jsx';
+import Month from './Month.jsx';
 
 import {tileGroupProps} from '../shared/propTypes';
 

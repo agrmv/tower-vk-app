@@ -1,8 +1,8 @@
 import React from 'react';
 import {getDecadeStart} from '@wojtekmaj/date-utils';
 
-import TileGroup from '../TileGroup';
-import Decade from './Decade';
+import TileGroup from '../TileGroup.jsx';
+import Decade from './Decade.jsx';
 
 import {getBeginOfCenturyYear} from '../shared/dates';
 import {tileGroupProps} from '../shared/propTypes';

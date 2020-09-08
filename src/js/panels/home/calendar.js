@@ -6,7 +6,7 @@ import {Alert, Panel, PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
 
 import moment from "moment";
 import Calendar from "../../../react-calendar/src";
-import '../../../react-calendar/dist/Calendar.css';
+import '../../../react-calendar/src/Calendar.less';
 
 class CalendarView extends React.Component {
     constructor(props) {
@@ -16,8 +16,8 @@ class CalendarView extends React.Component {
         };
     }
 
+    numberOfWeeks = 2;
     onChange = date => this.setState({date});
-
     onClickDay = value => {
         this.props.openPopout(
             <Alert
@@ -47,6 +47,7 @@ class CalendarView extends React.Component {
                     onChange={this.onChange}
                     value={this.state.date}
                     onClickDay={this.onClickDay}
+                    weeksToShow={this.numberOfWeeks}
                 />
             </Panel>
         );

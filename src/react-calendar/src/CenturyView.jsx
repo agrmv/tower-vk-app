@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Decades from './CenturyView/Decades';
+import Decades from './CenturyView/Decades.jsx';
 
 export default function CenturyView(props) {
     function renderDecades() {

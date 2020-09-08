@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getMonth, getMonthStart, getYear,} from '@wojtekmaj/date-utils';
 
-import Flex from '../Flex';
+import Flex from '../Flex.jsx';
 
 import {getDayOfWeek} from '../shared/dates';
 import {formatShortWeekday as defaultFormatShortWeekday, formatWeekday} from '../shared/dateFormatter';

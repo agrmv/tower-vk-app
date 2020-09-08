@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Years from './DecadeView/Years';
+import Years from './DecadeView/Years.jsx';
 
 export default function DecadeView(props) {
     function renderYears() {

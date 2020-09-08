@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Days from './MonthView/Days';
-import Weekdays from './MonthView/Weekdays';
-import WeekNumbers from './MonthView/WeekNumbers';
+import Days from './MonthView/Days.jsx';
+import Weekdays from './MonthView/Weekdays.jsx';
+import WeekNumbers from './MonthView/WeekNumbers.jsx';
 
 import {CALENDAR_TYPE_LOCALES, CALENDAR_TYPES} from './shared/const';
 import {isCalendarType} from './shared/propTypes';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getMonthEnd, getMonthStart} from '@wojtekmaj/date-utils';
 
-import Tile from '../Tile';
+import Tile from '../Tile.jsx';
 
 import {formatMonth as defaultFormatMonth, formatMonthYear as defaultFormatMonthYear,} from '../shared/dateFormatter';
 import {tileProps} from '../shared/propTypes';

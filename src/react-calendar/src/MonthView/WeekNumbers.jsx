@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getDate, getDaysInMonth, getMonth, getYear,} from '@wojtekmaj/date-utils';
 
-import WeekNumber from './WeekNumber';
-import Flex from '../Flex';
+import WeekNumber from './WeekNumber.jsx';
+import Flex from '../Flex.jsx';
 
 import {getBeginOfWeek, getDayOfWeek, getWeekNumber,} from '../shared/dates';
 import {isCalendarType} from '../shared/propTypes';

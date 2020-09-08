@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getYearEnd, getYearStart} from '@wojtekmaj/date-utils';
 
-import Tile from '../Tile';
+import Tile from '../Tile.jsx';
 
 import {formatYear as defaultFormatYear} from '../shared/dateFormatter';
 import {tileProps} from '../shared/propTypes';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Flex from './Flex';
+import Flex from './Flex.jsx';
 
 import {getTileClasses} from './shared/utils';
 import {tileGroupProps} from './shared/propTypes';

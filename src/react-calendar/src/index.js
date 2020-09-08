@@ -1,8 +1,8 @@
-import Calendar from "../dist/esm/Calendar";
-import CenturyView from "../dist/esm/CenturyView";
-import DecadeView from "../dist/esm/DecadeView";
-import YearView from "../dist/esm/YearView";
-import MonthView from "../dist/esm/MonthView";
+import Calendar from "./Calendar.jsx";
+import CenturyView from "./CenturyView.jsx";
+import DecadeView from "./DecadeView.jsx";
+import YearView from "./YearView.jsx";
+import MonthView from "./MonthView.jsx";
 
 export default Calendar;
 

@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getDaysInMonth, getMonth, getYear,} from '@wojtekmaj/date-utils';
 
-import TileGroup from '../TileGroup';
-import Day from './Day';
+import TileGroup from '../TileGroup.jsx';
+import Day from './Day.jsx';
 
-import {getDayOfWeek} from '../shared/dates';
+import {getDayOfWeek, getWeekOfMonth} from '../shared/dates';
 import {isCalendarType, tileGroupProps} from '../shared/propTypes';
 
 export default function Days(props) {

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getDate, getDayEnd, getDayStart} from '@wojtekmaj/date-utils';
 
-import Tile from '../Tile';
+import Tile from '../Tile.jsx';
 
 import {isWeekend} from '../shared/dates';
 import {formatLongDate as defaultFormatLongDate} from '../shared/dateFormatter';

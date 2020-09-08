@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {getDecadeEnd, getDecadeStart} from '@wojtekmaj/date-utils';
 
-import Tile from '../Tile';
+import Tile from '../Tile.jsx';
 
 import {getDecadeLabel} from '../shared/dates';
 import {formatYear as defaultFormatYear} from '../shared/dateFormatter';

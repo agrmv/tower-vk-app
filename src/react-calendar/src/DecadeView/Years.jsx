@@ -1,7 +1,7 @@
 import React from 'react';
 
-import TileGroup from '../TileGroup';
-import Year from './Year';
+import TileGroup from '../TileGroup.jsx';
+import Year from './Year.jsx';
 
 import {getBeginOfDecadeYear} from '../shared/dates';
 import {tileGroupProps} from '../shared/propTypes';

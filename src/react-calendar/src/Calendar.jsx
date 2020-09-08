@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import mergeClassNames from 'merge-class-names';
 
-import Navigation from './Calendar/Navigation';
-import CenturyView from './CenturyView';
-import DecadeView from './DecadeView';
-import YearView from './YearView';
-import MonthView from './MonthView';
+import Navigation from './Calendar/Navigation.jsx';
+import CenturyView from './CenturyView.jsx';
+import DecadeView from './DecadeView.jsx';
+import YearView from './YearView.jsx';
+import MonthView from './MonthView.jsx';
 
 import {getBegin, getBeginNext, getEnd, getValueRange,} from './shared/dates';
 import {isCalendarType, isClassName, isMaxDate, isMinDate, isValue, isView,} from './shared/propTypes';

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Months from './YearView/Months';
+import Months from './YearView/Months.jsx';
 
 export default function YearView(props) {
     function renderMonths() {
