@@ -13,26 +13,28 @@ class CalendarView extends React.Component {
         super(props);
         this.state = {
             date: new Date(),
+            showFixedNumberOfWeeks: true,
         };
     }
 
     numberOfWeeks = 2;
-    onChange = date => this.setState({date});
-    onClickDay = value => {
-        this.props.openPopout(
-            <Alert
-                actions={[{
-                    title: 'Ok',
-                    autoclose: true,
-                    style: 'cancel',
-                }]}
-                onClose={() => this.props.closePopout()}
-            >
-                <h2>Выбранный день:</h2>
-                <p>{moment(value).format('YYYY-MM-DD')}</p>
-            </Alert>
-        );
-    };
+    onChange = date => this.setState({date: date});
+    // onClickDay = activeStartDate => this.setState({activeStartDate: activeStartDate});
+    // onClickDay = value => {
+    //     // this.props.openPopout(
+    //     //     <Alert
+    //     //         actions={[{
+    //     //             title: 'Ok',
+    //     //             autoclose: true,
+    //     //             style: 'cancel',
+    //     //         }]}
+    //     //         onClose={() => this.props.closePopout()}
+    //     //     >
+    //     //         <h2>Выбранный день:</h2>
+    //     //         <p>{moment(value).format('YYYY-MM-DD')}</p>
+    //     //     </Alert>
+    //     // );
+    // };
 
     render() {
         const {id, goBack} = this.props;
@@ -46,8 +48,9 @@ class CalendarView extends React.Component {
                 <Calendar
                     onChange={this.onChange}
                     value={this.state.date}
-                    onClickDay={this.onClickDay}
+                    // onClickDay={this.onClickDay}
                     weeksToShow={this.numberOfWeeks}
+                    showFixedNumberOfWeeks={this.state.showFixedNumberOfWeeks}
                 />
             </Panel>
         );

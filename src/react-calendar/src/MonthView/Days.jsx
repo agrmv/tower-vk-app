@@ -36,17 +36,17 @@ export default function Days(props) {
      */
     const start = (weeksToShow ? (getWeekOfMonth(value) - 1) * 7 : 0)
         + (hasFixedNumberOfWeeks ? -dayOfWeek : 0) + 1;
+
     /**
      * Defines on which day of the month the grid shall end. If we simply show current
      * month, we need to stop on the last day of the month, but if showNeighboringMonth
      * is set to true, we need to find the end of the week the last day of the month is in.
      */
     const end = (() => {
-        if (Number.isInteger(weeksToShow) && weeksToShow > 0) {
-            return start + (weeksToShow * 7) - 1;
-        }
         if (showFixedNumberOfWeeks) {
-            // Always show 6 weeks
+            if (Number.isInteger(weeksToShow) && weeksToShow > 0) {
+                return start + (weeksToShow * 7) - 1;
+            }
             return start + (6 * 7) - 1;
         }
 

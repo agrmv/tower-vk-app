@@ -76,19 +76,19 @@ export default function Navigation({
     );
 
     function onClickPrevious() {
-        setActiveStartDate(previousActiveStartDate);
+        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() - 14));
     }
 
     function onClickPrevious2() {
-        setActiveStartDate(previousActiveStartDate2);
+        setActiveStartDate(previousActiveStartDate);
     }
 
     function onClickNext() {
-        setActiveStartDate(nextActiveStartDate);
+        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() + 14));
     }
 
     function onClickNext2() {
-        setActiveStartDate(nextActiveStartDate2);
+        setActiveStartDate(nextActiveStartDate);
     }
 
     function renderLabel(date) {
@@ -126,7 +126,7 @@ export default function Navigation({
                 aria-label={navigationAriaLabel}
                 className={labelClassName}
                 disabled={!drillUpAvailable}
-                onClick={drillUp}
+                // onClick={drillUp}
                 style={{flexGrow: 1}}
                 type="button"
             >
