@@ -4,4 +4,8 @@ services:
   tower:
     build:
       context: ./
+    hostname: tower
+    container_name: tower
+    ports:
+      - 8000:8000
 
