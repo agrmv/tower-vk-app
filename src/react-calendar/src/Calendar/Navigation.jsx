@@ -20,6 +20,7 @@ const className = 'react-calendar__navigation';
 export default function Navigation({
                                        activeStartDate,
                                        drillUp,
+                                       setCountWeeksToSwitch,
                                        formatMonthYear = defaultFormatMonthYear,
                                        formatYear = defaultFormatYear,
                                        locale,
@@ -39,7 +40,9 @@ export default function Navigation({
                                        showDoubleView,
                                        view,
                                        views,
+                                       countWeeksToSwitch
                                    }) {
+
     const drillUpAvailable = views.indexOf(view) > 0;
     const shouldShowPrevNext2Buttons = view !== 'century';
 
@@ -76,19 +79,31 @@ export default function Navigation({
     );
 
     function onClickPrevious() {
-        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() - 14));
+        setActiveStartDate(previousActiveStartDate)
     }
 
     function onClickPrevious2() {
-        setActiveStartDate(previousActiveStartDate);
+        setActiveStartDate(previousActiveStartDate2);
+    }
+
+    function previousWeek() {
+        //TODO magic numbers, rename countWeeksToSwitch variable
+        setCountWeeksToSwitch(countWeeksToSwitch -= 7)
+        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() - 7))
     }
 
     function onClickNext() {
-        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() + 14));
+        setActiveStartDate(activeStartDate);
+    }
+
+    function nextWeek() {
+        //TODO magic numbers, rename countWeeksToSwitch variable
+        setCountWeeksToSwitch(countWeeksToSwitch += 7)
+        setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() + 7))
     }
 
     function onClickNext2() {
-        setActiveStartDate(nextActiveStartDate);
+        setActiveStartDate(nextActiveStartDate2);
     }
 
     function renderLabel(date) {
@@ -169,7 +184,7 @@ export default function Navigation({
                 aria-label={prevAriaLabel}
                 className={`${className}__arrow ${className}__prev-button`}
                 disabled={prevButtonDisabled}
-                onClick={onClickPrevious}
+                onClick={previousWeek}
                 type="button"
             >
                 {prevLabel}
@@ -179,7 +194,7 @@ export default function Navigation({
                 aria-label={nextAriaLabel}
                 className={`${className}__arrow ${className}__next-button`}
                 disabled={nextButtonDisabled}
-                onClick={onClickNext}
+                onClick={nextWeek}
                 type="button"
             >
                 {nextLabel}
@@ -202,6 +217,7 @@ export default function Navigation({
 Navigation.propTypes = {
     activeStartDate: PropTypes.instanceOf(Date).isRequired,
     drillUp: PropTypes.func.isRequired,
+    setCountWeeksToSwitch: PropTypes.func.isRequired,
     formatMonthYear: PropTypes.func,
     formatYear: PropTypes.func,
     locale: PropTypes.string,
@@ -221,4 +237,5 @@ Navigation.propTypes = {
     showDoubleView: PropTypes.bool,
     view: isView.isRequired,
     views: isViews.isRequired,
+    countWeeksToSwitch: PropTypes.number,
 };
