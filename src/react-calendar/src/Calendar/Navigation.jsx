@@ -20,7 +20,7 @@ const className = 'react-calendar__navigation';
 export default function Navigation({
                                        activeStartDate,
                                        drillUp,
-                                       setCountWeeksToSwitch,
+                                       setstartWeek,
                                        formatMonthYear = defaultFormatMonthYear,
                                        formatYear = defaultFormatYear,
                                        locale,
@@ -40,7 +40,7 @@ export default function Navigation({
                                        showDoubleView,
                                        view,
                                        views,
-                                       countWeeksToSwitch
+                                       startWeek
                                    }) {
 
     const drillUpAvailable = views.indexOf(view) > 0;
@@ -87,8 +87,8 @@ export default function Navigation({
     }
 
     function previousWeek() {
-        //TODO magic numbers, rename countWeeksToSwitch variable
-        setCountWeeksToSwitch(countWeeksToSwitch -= 7)
+        //TODO magic numbers
+        setstartWeek(startWeek -= 7)
         setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() - 7))
     }
 
@@ -97,8 +97,8 @@ export default function Navigation({
     }
 
     function nextWeek() {
-        //TODO magic numbers, rename countWeeksToSwitch variable
-        setCountWeeksToSwitch(countWeeksToSwitch += 7)
+        //TODO magic numbers
+        setstartWeek(startWeek += 7)
         setActiveStartDate(new Date(activeStartDate.getFullYear(), activeStartDate.getMonth(), activeStartDate.getDate() + 7))
     }
 
@@ -217,7 +217,7 @@ export default function Navigation({
 Navigation.propTypes = {
     activeStartDate: PropTypes.instanceOf(Date).isRequired,
     drillUp: PropTypes.func.isRequired,
-    setCountWeeksToSwitch: PropTypes.func.isRequired,
+    setstartWeek: PropTypes.func.isRequired,
     formatMonthYear: PropTypes.func,
     formatYear: PropTypes.func,
     locale: PropTypes.string,
@@ -237,5 +237,5 @@ Navigation.propTypes = {
     showDoubleView: PropTypes.bool,
     view: isView.isRequired,
     views: isViews.isRequired,
-    countWeeksToSwitch: PropTypes.number,
+    startWeek: PropTypes.number,
 };
