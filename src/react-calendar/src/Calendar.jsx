@@ -156,7 +156,7 @@ export default class Calendar extends Component {
     state = {
         /* eslint-disable react/destructuring-assignment */
         activeStartDate: this.props.defaultActiveStartDate,
-        countWeeksToSwitch: this.props.countWeeksToSwitch,
+        startWeek: this.props.startWeek,
         value: this.props.defaultValue,
         view: this.props.defaultView,
         /* eslint-enable react/destructuring-assignment */
@@ -169,11 +169,11 @@ export default class Calendar extends Component {
         return activeStartDateProps || activeStartDateState || getInitialActiveStartDate(this.props);
     }
 
-    get countWeeksToSwitch() {
-        const {countWeeksToSwitch: countWeeksToSwitchProps} = this.props;
-        const {countWeeksToSwitch: countWeeksToSwitchState} = this.state;
+    get startWeek() {
+        const {startWeek: startWeekProps} = this.props;
+        const {startWeek: startWeekState} = this.state;
 
-        return countWeeksToSwitchProps || countWeeksToSwitchState || 0;
+        return startWeekProps || startWeekState || 0;
     }
 
     get value() {
@@ -329,8 +329,8 @@ export default class Calendar extends Component {
         this.setStateAndCallCallbacks({activeStartDate});
     }
 
-    setCountWeeksToSwitch = (countWeeksToSwitch) => {
-        this.setState({countWeeksToSwitch: countWeeksToSwitch});
+    setstartWeek = (startWeek) => {
+        this.setState({startWeek: startWeek});
     }
 
     drillDown = (nextActiveStartDate, event) => {
@@ -460,7 +460,7 @@ export default class Calendar extends Component {
             tileContent,
             tileDisabled,
             weeksToShow,
-            countWeeksToSwitch
+            startWeek
         } = this.props;
         const {hover} = this;
 
@@ -542,7 +542,7 @@ export default class Calendar extends Component {
                         showNeighboringMonth={showNeighboringMonth}
                         showWeekNumbers={showWeekNumbers}
                         weeksToShow={weeksToShow}
-                        countWeeksToSwitch={this.state.countWeeksToSwitch}
+                        startWeek={this.state.startWeek}
                         {...commonProps}
                     />
                 );
@@ -577,14 +577,14 @@ export default class Calendar extends Component {
             prevAriaLabel,
             prevLabel,
             showDoubleView,
-            countWeeksToSwitch
+            startWeek
         } = this.props;
 
         return (
             <Navigation
                 activeStartDate={activeStartDate}
                 drillUp={this.drillUp}
-                setCountWeeksToSwitch={this.setCountWeeksToSwitch}
+                setstartWeek={this.setstartWeek}
                 formatMonthYear={formatMonthYear}
                 formatYear={formatYear}
                 locale={locale}
@@ -604,7 +604,7 @@ export default class Calendar extends Component {
                 showDoubleView={showDoubleView}
                 view={view}
                 views={views}
-                countWeeksToSwitch={this.state.countWeeksToSwitch}
+                startWeek={this.state.startWeek}
             />
         );
     }
@@ -708,5 +708,5 @@ Calendar.propTypes = {
     value: isLooseValue,
     view: isView,
     weeksToShow: PropTypes.number,
-    countWeeksToSwitch: PropTypes.number
+    startWeek: PropTypes.number
 };

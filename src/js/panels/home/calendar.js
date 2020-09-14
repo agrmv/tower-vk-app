@@ -15,7 +15,7 @@ class CalendarView extends React.Component {
             date: new Date(),
             numberOfWeeks: 2,
             showFixedNumberOfWeeks: true,
-            countWeeksToSwitch: 0
+            startWeek: this.getMonday(new Date()) //понедельник текущей недели
         };
     }
 
@@ -38,7 +38,7 @@ class CalendarView extends React.Component {
     getMonday = date => {
         date = new Date(date);
         let day = date.getDay(), diff = date.getDate() - day + (day === 0 ? -6 : 1);
-        return new Date(date.setDate(diff));
+        return new Date(date.setDate(diff)).getDate();
     }
 
     render() {
@@ -50,10 +50,10 @@ class CalendarView extends React.Component {
                 </PanelHeader>
                 <Calendar
                     value={this.state.date}
-                    defaultActiveStartDate={this.getMonday(this.state.date)}
+                    defaultActiveStartDate={new Date()}
                     onClickDay={this.onClickDay}
                     weeksToShow={this.state.numberOfWeeks}
-                    countWeeksToSwitch={this.state.countWeeksToSwitch}
+                    startWeek={this.state.startWeek}
                     showFixedNumberOfWeeks={this.state.showFixedNumberOfWeeks}
                     prev2Label={null}
                     next2Label={null}
