@@ -63,7 +63,7 @@ export default function MonthView(props) {
             <Days
                 calendarType={calendarType}
                 weeksToShow={props}
-                countWeeksToSwitch={props}
+                startWeek={props}
                 {...childProps}
             />
         );
@@ -109,5 +109,5 @@ MonthView.propTypes = {
     showFixedNumberOfWeeks: PropTypes.bool,
     showWeekNumbers: PropTypes.bool,
     weeksToShow: PropTypes.number,
-    countWeeksToSwitch: PropTypes.number
+    startWeek: PropTypes.number
 };
