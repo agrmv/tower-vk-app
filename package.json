@@ -5,7 +5,7 @@
   "homepage": "./",
   "main": "index.js",
   "scripts": {
-    "start-back": "nodemon —inspect=0.0.0.0:9229 server/server.js",
+    "start-back": "nodemon --inspect=0.0.0.0:9229 server/server.js",
     "start": "webpack-dev-server --mode development --open --hot",
     "build": "webpack --mode production",
     "deploy": "vk-miniapps-deploy"
