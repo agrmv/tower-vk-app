@@ -23,11 +23,11 @@ RUN ls -la
 
 
 ADD server/ server/
-ADD public/ public/
-ADD src/ src/
-ADD vk-hosting-config.json vk-hosting-config.json
+#ADD public/ public/
+#ADD src/ src/
+#ADD vk-hosting-config.json vk-hosting-config.json
 ADD package.json package.json
-ADD webpack.config.js webpack.config.js
+#ADD webpack.config.js webpack.config.js
 
 RUN sudo chmod -R 777 /home/node
 RUN npm install
