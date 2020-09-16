@@ -35,8 +35,10 @@ export default function Days(props) {
      * month, we obviously start on day one, but if showNeighboringMonth is set to
      * true, we need to find the beginning of the week the first day of the month is in.
      */
-    const start = (weeksToShow ? (getWeekOfMonth(value) - 1) * 7 : 0)
-        + (hasFixedNumberOfWeeks ? -dayOfWeek : 0) + 1 + startWeek;
+    // const start = (weeksToShow ? (getWeekOfMonth(value) - 1) * 7 : 0)
+    //     + (hasFixedNumberOfWeeks ? -dayOfWeek : 0) + 1 + startWeek;
+
+    const start = startWeek //monday of current week
 
     /**
      * Defines on which day of the month the grid shall end. If we simply show current

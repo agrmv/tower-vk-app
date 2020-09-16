@@ -329,7 +329,7 @@ export default class Calendar extends Component {
         this.setStateAndCallCallbacks({activeStartDate});
     }
 
-    setstartWeek = (startWeek) => {
+    setCurrentWeek = (startWeek) => {
         this.setState({startWeek: startWeek});
     }
 
@@ -577,14 +577,13 @@ export default class Calendar extends Component {
             prevAriaLabel,
             prevLabel,
             showDoubleView,
-            startWeek
         } = this.props;
 
         return (
             <Navigation
                 activeStartDate={activeStartDate}
                 drillUp={this.drillUp}
-                setstartWeek={this.setstartWeek}
+                setCurrentWeek={this.setCurrentWeek}
                 formatMonthYear={formatMonthYear}
                 formatYear={formatYear}
                 locale={locale}
@@ -605,6 +604,7 @@ export default class Calendar extends Component {
                 view={view}
                 views={views}
                 startWeek={this.state.startWeek}
+                weeksToSwitch={this.props.weeksToSwitch}
             />
         );
     }
@@ -708,5 +708,6 @@ Calendar.propTypes = {
     value: isLooseValue,
     view: isView,
     weeksToShow: PropTypes.number,
-    startWeek: PropTypes.number
+    startWeek: PropTypes.number,
+    weeksToSwitch: PropTypes.number,
 };
