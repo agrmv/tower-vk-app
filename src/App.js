@@ -80,7 +80,7 @@ class App extends React.Component {
                 />
                 <CreateGameModal
                     id="CREATE_GAME_MODAL"
-                    onClose={() => closeModal}
+                    onClose={() => closeModal()}
                 />
             </ModalRoot>
         );
