@@ -62,7 +62,7 @@ class CalendarView extends React.Component {
                     prev2Label={null}
                     next2Label={null}
                 />
-                <Button variant="contained" color="primary" onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
+                <Button variant="contained" color="primary" style={{marginTop: '0.5em'}} onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
                     игру</Button>
             </Panel>
         );
