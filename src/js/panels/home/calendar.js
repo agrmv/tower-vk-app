@@ -7,19 +7,21 @@ import {Alert, Panel, PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
 import Calendar from "../../../react-calendar/src";
 import '../../../react-calendar/src/Calendar.less';
 import moment from "moment";
+import Button from "@vkontakte/vkui/dist/components/Button/Button";
 
 class CalendarView extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             date: new Date(),
-            numberOfWeeks: 2,
+            numberOfWeeks: 1,
             showFixedNumberOfWeeks: true,
             startWeek: this.getMonday(new Date()).getDate(), //понедельник текущей недели
             weeksToSwitch: 1 * 7, // one week
             activeStartDate: this.getMonday(new Date())
         };
     }
+
     onClickDay = value => {
         this.props.openPopout(
             <Alert
@@ -60,6 +62,8 @@ class CalendarView extends React.Component {
                     prev2Label={null}
                     next2Label={null}
                 />
+                <Button variant="contained" color="primary" onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
+                    игру</Button>
             </Panel>
         );
     }

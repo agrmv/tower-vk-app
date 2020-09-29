@@ -20,6 +20,7 @@ import MorePanelExample from './js/panels/more/example';
 
 import HomeBotsListModal from './js/components/modals/HomeBotsListModal';
 import HomeBotInfoModal from './js/components/modals/HomeBotInfoModal';
+import CreateGameModal from "./js/components/modals/CreateGameModal";
 
 class App extends React.Component {
     constructor(props) {
@@ -76,6 +77,10 @@ class App extends React.Component {
                 <HomeBotInfoModal
                     id="MODAL_PAGE_BOT_INFO"
                     onClose={() => closeModal()}
+                />
+                <CreateGameModal
+                    id="CREATE_GAME_MODAL"
+                    onClose={() => closeModal}
                 />
             </ModalRoot>
         );
