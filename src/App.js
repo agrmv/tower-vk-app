@@ -92,7 +92,6 @@ class App extends React.Component {
                             onSwipeBack={() => goBack()}
                         >
                             <HomePanelBase id="base" withoutEpic={false}/>
-                            <TowerCalendar id="calendar"/>
                         </View>
                     </Root>
                     <Root id="more" activeView={activeView} popout={popout}>

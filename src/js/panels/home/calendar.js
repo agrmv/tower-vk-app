@@ -48,9 +48,6 @@ class CalendarView extends React.Component {
         const {id, goBack} = this.props;
         return (
             <Panel id={id}>
-                <PanelHeader left={<PanelHeaderBack onClick={() => goBack()}/>}>
-                    Календарь
-                </PanelHeader>
                 <Calendar
                     value={this.state.date}
                     onClickDay={this.onClickDay}
