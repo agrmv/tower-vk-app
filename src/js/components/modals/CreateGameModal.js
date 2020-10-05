@@ -5,6 +5,7 @@ import Icon24Dismiss from '@vkontakte/icons/dist/24/dismiss';
 import Icon24Cancel from '@vkontakte/icons/dist/24/cancel';
 import Icon24Gallery from '@vkontakte/icons/dist/24/gallery';
 import {
+    Button,
     Checkbox,
     File,
     FormLayout,
@@ -17,7 +18,6 @@ import {
     Select,
     Slider,
     Textarea,
-    Button,
     withPlatform
 } from "@vkontakte/vkui";
 
@@ -44,14 +44,12 @@ class CreateGameModal extends React.Component {
                         right={platform === IOS &&
                         <PanelHeaderButton onClick={onClose}><Icon24Dismiss/></PanelHeaderButton>}
                     >
+                        Заявить новую игру
                     </ModalPageHeader>
                 }
                 onClose={onClose}
                 settlingHeight={80}
             >
-                <ModalPageHeader>
-                    Заявить новую игру
-                </ModalPageHeader>
                 {/*TODO когда появится бэк добавить стейты/пропсы для сабмита*/}
                 <FormLayout>
                     <FormLayoutGroup top="Название игры">

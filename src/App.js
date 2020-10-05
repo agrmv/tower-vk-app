@@ -10,7 +10,6 @@ import Icon20CalendarOutline from '@vkontakte/icons/dist/20/calendar_outline';
 import Icon28More from '@vkontakte/icons/dist/28/more';
 
 import HomePanelBase from './js/panels/home/base';
-import TowerCalendar from './js/panels/home/calendar';
 import MorePanelBase from './js/panels/more/base';
 import CreateGameModal from "./js/components/modals/CreateGameModal";
 
