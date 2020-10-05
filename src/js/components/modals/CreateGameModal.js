@@ -84,8 +84,7 @@ class CreateGameModal extends React.Component {
                         <Input type="date"/>
                     </FormLayoutGroup>
                     <FormLayout>
-                        {/*TODO количесвто столов вынести в конфиг, а тут заебашить циклом*/}
-                        {/*TODO а еще ебать надо как то чекать свободные*/}
+                        {/*TODO запрос для получения столов с флагом is_свободен? А занятые столы нахуй не надо рисовать*/}
                         <Select top="Игровой стол" placeholder="Выберите игровой стол">
                             <option value="table_1">1</option>
                             <option value="table_2">2</option>
