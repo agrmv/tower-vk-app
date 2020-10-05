@@ -55,6 +55,7 @@ class CreateGameModal extends React.Component {
                     <FormLayoutGroup top="Название игры">
                         <Input type="text" placeholder="Введите название"/>
                     </FormLayoutGroup>
+                    {/*TODO сделать выбор системы селектом, а при нажатии на чекбокс выкидывать инпут.Либо убрать этот юзлес чекбокс*/}
                     <FormLayoutGroup top="Система правил">
                         <Input type="text" placeholder="Введите систему правил"/>
                     </FormLayoutGroup>
