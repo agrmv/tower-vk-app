@@ -80,7 +80,7 @@ class CreateGameModal extends React.Component {
                         <Input type="text" placeholder="Введите жанр"/>
                     </FormLayoutGroup>
                     <FormLayoutGroup top="Дата проведения игры">
-                        <Input type="date"/>
+                        <Input type="date" placeholder="Выберите дату"/>
                     </FormLayoutGroup>
                     <FormLayout>
                         {/*TODO запрос для получения столов с флагом is_свободен? А занятые столы нахуй не надо рисовать*/}

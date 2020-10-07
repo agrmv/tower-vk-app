@@ -6,7 +6,7 @@ import {getActivePanel} from "./js/services/_functions";
 import * as VK from './js/services/VK';
 
 import {ConfigProvider, Epic, ModalRoot, Root, Tabbar, TabbarItem, View} from "@vkontakte/vkui";
-import Icon20CalendarOutline from '@vkontakte/icons/dist/20/calendar_outline';
+import Icon28CalendarOutline from '@vkontakte/icons/dist/28/calendar_outline';
 import Icon28More from '@vkontakte/icons/dist/28/more';
 
 import HomePanelBase from './js/panels/home/base';
@@ -75,7 +75,7 @@ class App extends React.Component {
                         <TabbarItem
                             onClick={() => setStory('home', 'base')}
                             selected={activeStory === 'home'}
-                        ><Icon20CalendarOutline/></TabbarItem>
+                        ><Icon28CalendarOutline/></TabbarItem>
                         <TabbarItem
                             onClick={() => setStory('more', 'menu')}
                             selected={activeStory === 'more'}
