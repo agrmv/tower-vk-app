@@ -392,7 +392,7 @@ export default class Calendar extends Component {
 
         const nextActiveStartDate = getActiveStartDate({
             ...this.props,
-            value: nextValue,
+            //value: nextValue,
         });
 
         this.setStateAndCallCallbacks({

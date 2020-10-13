@@ -5,17 +5,7 @@ import {setPage} from "../../store/router/actions";
 import {setActiveTab, setScrollPositionByID} from "../../store/vk/actions";
 import {restoreScrollPosition} from "../../services/_functions";
 
-import {
-    CellButton,
-    Div,
-    FixedLayout,
-    Group,
-    HorizontalScroll,
-    Panel,
-    PanelHeader,
-    Tabs,
-    TabsItem
-} from "@vkontakte/vkui";
+import {Div, FixedLayout, Group, HorizontalScroll, Panel, PanelHeader, Tabs, TabsItem} from "@vkontakte/vkui";
 
 class HomePanelProfile extends React.Component {
 
@@ -23,7 +13,7 @@ class HomePanelProfile extends React.Component {
         super(props);
 
         this.state = {
-            activeTab: props.activeTab["EXAMPLE"] || "modal"
+            activeTab: "test"
         };
     }
 
@@ -37,7 +27,7 @@ class HomePanelProfile extends React.Component {
         const {setScrollPositionByID, setActiveTab} = this.props;
 
         setActiveTab("EXAMPLE", this.state.activeTab);
-        setScrollPositionByID("EXAMPLE_TABS_LIST");
+        setScrollPositionByID("MENU_LIST");
     }
 
     componentDidMount() {
@@ -45,7 +35,7 @@ class HomePanelProfile extends React.Component {
     }
 
     render() {
-        const {id, setPage} = this.props;
+        const {id} = this.props;
         const boxStyle = {marginTop: 56};
 
         return (
@@ -53,13 +43,7 @@ class HomePanelProfile extends React.Component {
                 <PanelHeader noShadow={true}>Examples 2</PanelHeader>
                 <FixedLayout vertical="top">
                     <Tabs theme="header" mode="default">
-                        <HorizontalScroll id="EXAMPLE_TABS_LIST">
-                            <TabsItem
-                                onClick={() => this.setTab('modal')}
-                                selected={this.state.activeTab === 'modal'}
-                            >
-                                Модальное окно
-                            </TabsItem>
+                        <HorizontalScroll id="MENU_LIST">
                             <TabsItem
                                 onClick={() => this.setTab('test')}
                                 selected={this.state.activeTab === 'test'}
@@ -82,11 +66,7 @@ class HomePanelProfile extends React.Component {
                     </Tabs>
                 </FixedLayout>
                 <Group style={boxStyle}>
-                    {this.state.activeTab === 'modal' && <CellButton onClick={() => setPage('modal', 'filters')}>
-                        Открыть модальное окно
-                    </CellButton>}
-
-                    {this.state.activeTab !== 'modal' && <Div>{this.state.activeTab}</Div>}
+                    {<Div>{this.state.activeTab}</Div>}
                 </Group>
             </Panel>
         );

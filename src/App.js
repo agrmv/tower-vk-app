@@ -6,20 +6,12 @@ import {getActivePanel} from "./js/services/_functions";
 import * as VK from './js/services/VK';
 
 import {ConfigProvider, Epic, ModalRoot, Root, Tabbar, TabbarItem, View} from "@vkontakte/vkui";
-
-import Icon28Newsfeed from '@vkontakte/icons/dist/28/newsfeed';
+import Icon28CalendarOutline from '@vkontakte/icons/dist/28/calendar_outline';
 import Icon28More from '@vkontakte/icons/dist/28/more';
 
 import HomePanelBase from './js/panels/home/base';
-import HomePanelGroups from './js/panels/home/groups';
-import TowerCalendar from './js/panels/home/calendar';
-
-
 import MorePanelBase from './js/panels/more/base';
-import MorePanelExample from './js/panels/more/example';
-
-import HomeBotsListModal from './js/components/modals/HomeBotsListModal';
-import HomeBotInfoModal from './js/components/modals/HomeBotInfoModal';
+import CreateGameModal from "./js/components/modals/CreateGameModal";
 
 class App extends React.Component {
     constructor(props) {
@@ -69,12 +61,8 @@ class App extends React.Component {
 
         const homeModals = (
             <ModalRoot activeModal={activeModal}>
-                <HomeBotsListModal
-                    id="MODAL_PAGE_BOTS_LIST"
-                    onClose={() => closeModal()}
-                />
-                <HomeBotInfoModal
-                    id="MODAL_PAGE_BOT_INFO"
+                <CreateGameModal
+                    id="CREATE_GAME_MODAL"
                     onClose={() => closeModal()}
                 />
             </ModalRoot>
@@ -87,9 +75,9 @@ class App extends React.Component {
                         <TabbarItem
                             onClick={() => setStory('home', 'base')}
                             selected={activeStory === 'home'}
-                        ><Icon28Newsfeed/></TabbarItem>
+                        ><Icon28CalendarOutline/></TabbarItem>
                         <TabbarItem
-                            onClick={() => setStory('more', 'callmodal')}
+                            onClick={() => setStory('more', 'menu')}
                             selected={activeStory === 'more'}
                         ><Icon28More/></TabbarItem>
                     </Tabbar>
@@ -103,8 +91,6 @@ class App extends React.Component {
                             onSwipeBack={() => goBack()}
                         >
                             <HomePanelBase id="base" withoutEpic={false}/>
-                            <TowerCalendar id="calendar"/>
-                            <HomePanelGroups id="groups"/>
                         </View>
                     </Root>
                     <Root id="more" activeView={activeView} popout={popout}>
@@ -115,16 +101,7 @@ class App extends React.Component {
                             history={history}
                             onSwipeBack={() => goBack()}
                         >
-                            <MorePanelBase id="callmodal"/>
-                        </View>
-                        <View
-                            id="modal"
-                            modal={homeModals}
-                            activePanel={getActivePanel("modal")}
-                            history={history}
-                            onSwipeBack={() => goBack()}
-                        >
-                            <MorePanelExample id="filters"/>
+                            <MorePanelBase id="menu"/>
                         </View>
                     </Root>
                 </Epic>
