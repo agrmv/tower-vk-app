@@ -2,7 +2,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from "redux";
 import {closePopout, goBack, openModal, openPopout} from "../../store/router/actions";
-import {Alert, Panel, PanelHeader, PanelHeaderBack} from "@vkontakte/vkui";
+import {Alert, Panel} from "@vkontakte/vkui";
 
 import Calendar from "../../../react-calendar/src";
 import '../../../react-calendar/src/Calendar.less';
@@ -18,7 +18,9 @@ class CalendarView extends React.Component {
             showFixedNumberOfWeeks: true,
             startWeek: this.getMonday(new Date()).getDate(), //понедельник текущей недели
             weeksToSwitch: 1 * 7, // one week
-            activeStartDate: this.getMonday(new Date())
+            activeStartDate: this.getMonday(new Date()),
+            gamesList: [],
+            errorMessage: ""
         };
     }
 
@@ -44,8 +46,26 @@ class CalendarView extends React.Component {
         return new Date(date.setDate(diff));
     }
 
+    componentDidMount() {
+        const headers = {'Content-Type': 'application/json'}
+        fetch('http://127.0.0.1:8000/gamesList', {headers})
+            .then(async response => {
+                const data = await response.json();
+                if (!response.ok) {
+                    const error = (data && data.message) || response.statusText;
+                    return Promise.reject(error);
+                }
+
+                this.setState({gamesList: data.gamesList})
+            })
+            .catch(error => {
+                this.setState({errorMessage: error.toString()});
+                console.error('There was an error!', error);
+            });
+    }
+
     render() {
-        const {id, goBack} = this.props;
+        const {id} = this.props;
         return (
             <Panel id={id}>
                 <Calendar
@@ -59,7 +79,8 @@ class CalendarView extends React.Component {
                     prev2Label={null}
                     next2Label={null}
                 />
-                <Button variant="contained" color="primary" style={{marginTop: '0.5em'}} onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
+                <Button variant="contained" color="primary" style={{marginTop: '0.5em'}}
+                        onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
                     игру</Button>
             </Panel>
         );

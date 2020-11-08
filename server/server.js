@@ -65,6 +65,7 @@ app.get('/gamesList', async (req, res) => {
               system: 'Forbidden lands',
               genre: ['Детектив', 'Мифология', 'Ужасы'],
               tag: ['Для новичков'],
+              img: 'test img',
               time: {
                 start: '13:00',
                 end: '15:00'
@@ -80,6 +81,7 @@ app.get('/gamesList', async (req, res) => {
               system: 'D&D 5',
               genre: ['Детектив', 'Мифология', 'Ужасы'],
               tag: ['Для задротов'],
+              img: 'test img',
               time: {
                   start: '15:00',
                   end: '17:00'
