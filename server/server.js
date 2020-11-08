@@ -1,10 +1,18 @@
 const config = require('./config');
 const {RestApiError} = require('./errors');
+const fs = require('fs');
+const path = require('path');
 
 const Express = require('express');
 let app = Express();
 
 app.use(Express.json());
+
+app.use((req, res, next) => {
+    res.set('Content-Type', 'application/json');
+    res.set('Access-Control-Allow-Origin', "*");
+    next();
+});
 
 app.get('/', async (req, res) => {
     try {
@@ -14,19 +22,38 @@ app.get('/', async (req, res) => {
     }
 });
 
+async function getBase64Img (path) {
+    return new Promise((resolve, reject) => fs.readFile(path, (err, data) => {
+        if (err) return reject(err);
+
+        let base64Image = new Buffer(data, 'binary').toString('base64');
+
+        return resolve(`data:image/jpeg;base64,${base64Image}`);
+    }))
+}
+
 app.get('/test', async (req, res) => {
+    let game1Img = path.resolve(__dirname, 'img/game1.jpg');
+    let base64game1 = await getBase64Img(game1Img);
+
+    let game2Img = path.resolve(__dirname, 'img/game2.jpg');
+    let base64game2= await getBase64Img(game2Img);
+
+
+    console.log('game1:', base64game1);
+
     return res.json({
         response: {
             game_list: [
                 {
-                    img: 'img.img',
+                    img: base64game1,
                     name: 'test name',
                     tags: ['D&D 5', 'for beginners'],
                     players: ['player1', 'player2', 'player3'],
                     time: {begin: '15:00', end: '18:00'}
                 },
                 {
-                    img: 'img.img',
+                    img: base64game2,
                     name: 'test name 2',
                     tags: ['D&D 5', 'for advanced players'],
                     players: ['player1', 'player2'],
@@ -58,14 +85,21 @@ app.get('/test', async (req, res) => {
  * @Returns Array of objects
  */
 app.get('/gamesList', async (req, res) => {
-   return res.json({
+    let game1Img = path.resolve(__dirname, 'img/game1.jpg');
+    let base64game1 = getBase64Img(game1Img);
+
+    let game2Img = path.resolve(__dirname, 'img/game2.jpg');
+    let base64game2= getBase64Img(game2Img);
+
+
+    return res.json({
       gamesList: [
           {
               name: 'Старые сказки Трансильвании',
               system: 'Forbidden lands',
               genre: ['Детектив', 'Мифология', 'Ужасы'],
               tag: ['Для новичков'],
-              img: 'test img',
+              img: base64game1,
               time: {
                 start: '13:00',
                 end: '15:00'
@@ -81,7 +115,7 @@ app.get('/gamesList', async (req, res) => {
               system: 'D&D 5',
               genre: ['Детектив', 'Мифология', 'Ужасы'],
               tag: ['Для задротов'],
-              img: 'test img',
+              img: base64game2,
               time: {
                   start: '15:00',
                   end: '17:00'
@@ -101,6 +135,9 @@ app.get('/gamesList', async (req, res) => {
  * @Returns object|RestApiError
  */
 app.get('/game/:id', async (req, res) => {
+    let game1Img = path.resolve(__dirname, 'img/game1.jpg');
+    let base64game1 = getBase64Img(game1Img);
+
     const gameId = req.params.id;
     if (!gameId) {
         res.send(new RestApiError('Game not found', 404));
@@ -111,7 +148,7 @@ app.get('/game/:id', async (req, res) => {
         system: 'D&D 5',
         genre: ['Детектив', 'Мифология', 'Ужасы'],
         tag: ['Для задротов'],
-        img: 'test img',
+        img: base64game1,
         time: {
             start: '13:00',
             end: '15:00'
