@@ -47,15 +47,14 @@ class CalendarView extends React.Component {
     }
 
     componentDidMount() {
-        const headers = {'Content-Type': 'application/json'}
-        fetch('http://127.0.0.1:8000/gamesList', {headers})
+        fetch('http://127.0.0.1:8000/gamesList')
             .then(async response => {
                 const data = await response.json();
                 if (!response.ok) {
                     const error = (data && data.message) || response.statusText;
                     return Promise.reject(error);
                 }
-
+                console.log(data.gamesList)
                 this.setState({gamesList: data.gamesList})
             })
             .catch(error => {
@@ -79,14 +78,49 @@ class CalendarView extends React.Component {
                     prev2Label={null}
                     next2Label={null}
                 />
-                <Button variant="contained" color="primary" style={{marginTop: '0.5em'}}
+                <Button variant="contained" color="primary" style={{marginTop: '0.5em', marginLeft: '8.5px'}}
                         onClick={() => this.props.openModal("CREATE_GAME_MODAL")}>Заявить
                     игру</Button>
+                <GamesList list={this.state.gamesList}/>
             </Panel>
         );
     }
 
 }
+
+const GamesList = ({list}) => (
+    <ul>
+        {list.map(item => (
+            <ListItem key={item.id.toString()} item={item}/>
+        ))}
+    </ul>
+);
+
+const ListItem = ({item}) => (
+    <li className="game_card">
+        <img className="game_image" src={`data:image/jpeg;base64,${item.img}`}/>
+        <p className="game_name">{item.name}</p>
+        <p className="game_system">{item.system}</p>
+        <p className="game_genre">Жанр: {item.genre.join(", ")}</p>
+        <div className="game_tag">
+            <p style={{margin: '5px'}}>{item.tag.join(", ")}</p>
+        </div>
+        <div className="game_time">
+            <img src="/src/images/time.svg"/>{item.time.start} - {item.time.end}
+        </div>
+        <p className="game_master">Мастер: <a href={item.master.vkLink}>{item.master.name} </a></p>
+        <div className="game_table">
+            <img src="/src/images/table.svg"/>  {item.table}
+        </div>
+        <div className="game_peoples">
+            <img src="/src/images/peoples.svg"/> 3/4
+        </div>
+        <div className="game_company">
+            <img src="/src/images/company.svg"/>  Кампания (10 - 10+ игровых сессий)
+        </div>
+    </li>
+);
+
 
 function mapDispatchToProps(dispatch) {
     return {

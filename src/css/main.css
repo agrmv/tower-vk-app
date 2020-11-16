@@ -21,3 +21,143 @@ a, div, img, p, button {
     -webkit-touch-callout: none;
     -webkit-tap-highlight-color: transparent;
 }
+
+li {
+    list-style-type: none;
+}
+
+.game_card {
+    width: 600px;
+    height: 232px;
+    left: 579px;
+    top: 282px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-left: -30px;
+}
+
+.game_image {
+    position: absolute;
+    width: 155px;
+    height: 232px;
+
+    border-radius: 10px 0px 0px 10px;
+}
+
+.game_name {
+    position: absolute;
+    width: 208px;
+    height: 20px;
+    left: 170px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #000000;
+    margin-top: 5px;
+}
+
+.game_system {
+    position: absolute;;
+    width: 208px;
+    height: 20px;
+    left: 170px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #000000;
+    margin-top: 25px;
+}
+
+.game_genre {
+    /*width: 208px;*/
+    position: absolute;
+    height: 20px;
+    left: 170px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #000000;
+    margin-top: 45px;
+}
+
+.game_tag {
+    width: 88px;
+    height: 23.16px;
+    margin-left: 512px;
+    margin-top: 1px;
+
+    background: #4986CC;
+    border-radius: 50px;
+    position: absolute;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12.807px;
+    line-height: 15px;
+
+    /* identical to box height, or 143% */
+    letter-spacing: 0.077193px;
+
+    color: #FFFFFF;
+}
+
+.game_time {
+    position: absolute;
+    width: 112px;
+    height: 20px;
+    margin-left: 475px;
+    margin-top: 30px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #000000;
+}
+
+.game_master {
+    position: absolute;
+    width: 181px;
+    height: 20px;
+    margin-left: 435px;
+    margin-top: 65px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: #000000;
+}
+
+.game_table {
+    position: absolute;
+    margin-left: 475px;
+    margin-top: 115px;
+}
+
+.game_company {
+    position: absolute;
+    margin-left: 160px;
+    margin-top: 110px;
+}
+
+.game_peoples {
+    position: absolute;
+    margin-left: 160px;
+    margin-top: 80px;
+}

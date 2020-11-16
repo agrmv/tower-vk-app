@@ -25,6 +25,7 @@
     "babel-plugin-transform-runtime": "^6.23.0",
     "cross-env": "^5.2.1",
     "css-loader": "^4.2.2",
+    "file-loader": "^6.2.0",
     "get-user-locale": "^1.4.0",
     "html-webpack-plugin": "^4.4.1",
     "less": "^3.12.2",
@@ -41,7 +42,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.11.2",
-    "@vkontakte/icons": "^1.39.1",
+    "@vkontakte/icons": "^1.54.0",
     "@vkontakte/vk-bridge": "^2.2.8",
     "@vkontakte/vk-connect": "^1.9.1",
     "@vkontakte/vkui": "^3.12.5",
