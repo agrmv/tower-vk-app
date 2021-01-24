@@ -1,16 +1,18 @@
 version: "3.0"
 
 services:
-#  mongo:
-#    image: mongo:4.0.17
-#      container_name: "tower_mongo"
-#      environment:
-#        MONGO_LOG_DIR: /dev/null
-#      volumes:
-#        - payserver_mongo_db:/data/db
-#      ports:
-#        - 27017
-#      command: mongod --smallfiles --storageEngine=wiredTiger --logpath=/dev/null # --quiet
+  payserver_mongo:
+    image: mongo:4.0.17
+    container_name: "tower_mongo"
+    environment:
+      MONGO_LOG_DIR: /dev/null
+    volumes:
+      - tower_mongo_db:/data/db
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --storageEngine=wiredTiger --logpath=/dev/null # --quiet
+    networks:
+      - tower_local_network
 
   tower:
     build:
@@ -23,4 +25,15 @@ services:
       - ./package.json:/node/package.json:rw
     ports:
       - 8000:8000
+      - 9229:9229
+    environment:
+      NODE_MONGODB: tower_mongo:27017
+    networks:
+      - tower_local_network
 
+volumes:
+  tower_mongo_db:
+
+networks:
+  tower_local_network:
+    external: true

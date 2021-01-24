@@ -6,7 +6,22 @@ const path = require('path');
 const Express = require('express');
 let app = Express();
 
+const Core = require('./core');
+let core;
+
+// Setup global path
+global.__base = __dirname;
+
 app.use(Express.json());
+
+Core().then((cor) => {
+    core = cor;
+    console.info('Server has been initialised successfully');
+    app.listen(config.port, () => console.log('Server started'));
+}).catch(err => {
+    console.error('Server has been failed to initialize');
+    console.error(err);
+});
 
 app.use((req, res, next) => {
     res.set('Content-Type', 'application/json');
@@ -39,7 +54,6 @@ app.get('/test', async (req, res) => {
     let game2Img = path.resolve(__dirname, 'img/game2.jpg');
     let base64game2= await getBase64Img(game2Img);
 
-
     console.log('game1:', base64game1);
 
     return res.json({
@@ -62,6 +76,10 @@ app.get('/test', async (req, res) => {
             ]
         }
     });
+});
+
+app.get('/testMongo', async (req, res) => {
+    return res.send({success: core.db.modelNames()})
 });
 
 // TODO: прикрутить в миддлвару проверку прав
@@ -182,4 +200,3 @@ app.get('/game/:id', async (req, res) => {
 
 });
 
-app.listen(config.port, () => console.log('Server started'));
